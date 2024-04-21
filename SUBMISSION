@@ -1,0 +1,100 @@
+import java.util.Scanner; 
+//Faranani Netshirando
+//st10443627
+
+public class faranani{
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);    //method to introduce the scanner class
+         //It shows the welcome registration and login page
+        System.out.println("Welcome to the registration page");
+        System.out.println("\n\n");
+
+        String username;
+        do {
+            System.out.println("Please enter your username");   //prompting the user to enter your username
+            username = scanner.nextLine();     //It's for acceptiong user input
+
+            if (!username.contains("_") || username.length() > 5) {
+                System.out.println("Username is not correctly formatted. Please ensure it does not have more than 5 characters.");
+            } else {
+                System.out.println("Username successfully captured");  //Telling the user that the username is successfully captured
+                break;
+            }
+        } while (true);
+
+        String firstName;
+        do {
+            System.out.println("Please enter your first name");  //Asking the user enter your first name
+            firstName = scanner.nextLine();
+
+            if (firstName.matches(".*[!@#$%^&*+ ].*") || firstName.length() > 15) {
+                System.out.println("First name is not formatted correctly. Please ensure that it does not contain special characters and is not more than 15 characters.");
+            } else {
+                System.out.println("First name successfully captured");  //Telling the user that the firstname is successfully captured
+                break;
+            }
+        } while (true);
+
+        String lastName;
+        do {
+            System.out.println("Please enter your last name");   //prompting the user to enter their last name
+            lastName = scanner.nextLine();
+
+            if (lastName.matches(".*[!@#$%^&*+ ].*") || lastName.length() > 15) {
+                System.out.println("Last name is not formatted correctly. Please ensure that it does not contain special characters and is not more than 15 characters.");
+            } else {
+                System.out.println("Last name successfully captured");//Telling the user that their last name is successfully captured
+                break;
+            }
+        } while (true);
+
+        String password;
+        boolean passwordValidated = true;
+        do {
+            System.out.println("Please enter your password");//Asking the user to enter your password
+            password = scanner.nextLine();
+
+            if (password.length() >= 8 || password.matches(".*[A-Z].*") || password.matches(".*[a-z].*") || password.matches(".*[0-9].*") || password.matches(".*[!@#$%^&+].*")) {
+            System.out.println("password successfully captured");//Telling the user that password is successfully captured
+            } else {
+                System.out.println("Password is not formatted correctly. Please ensure it is at least 8 characters long, contains at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+                passwordValidated = true;
+            }
+        } while (!passwordValidated);
+
+        System.out.println("\n\n# Welcome to the login page #");
+        System.out.println("\n\n");
+
+        String loginUsername;
+        do {
+            System.out.println("To login, please enter your username");   //prompting the user to enter your usernamae
+            loginUsername = scanner.nextLine();  //It's for accepting user input
+
+            if (loginUsername.equals(username)) {
+                System.out.println("Username is correct");   //Telling the user that the username is correct
+                break;
+            } else {
+                System.out.println("Username is incorrect. Please try again.");
+            }
+        } while (true);
+
+        String loginPassword;
+        do {
+            System.out.println("Please enter your password");  //Prompting the user to enter your password
+            loginPassword = scanner.nextLine();
+
+            if (loginPassword.equals(password)) {
+                System.out.println("Password is correct");   //Telling the user that the password is correct
+                System.out.println("Welcome " + firstName + " " + lastName + ". It's great to see you again.");
+                break;
+            } else {
+                System.out.println("Password is incorrect. Please try again.");
+            }
+        } while (true);
+
+        System.out.println("Press any key to exit");
+        scanner.nextLine();
+        System.out.println("Hope to see you next time");
+    }
+}
